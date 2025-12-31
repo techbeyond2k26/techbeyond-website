@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register | VEC Sympo</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="register-bg">
+
+<nav>
+  <strong>VEC SYMPO</strong>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="../events.html">Events</a>
+  </div>
+</nav>
+<section class="register-section">
+  <div class="register-box">
+    <h2 class="register-title">ENTER THE GATE</h2>
+    <p class="register-sub">
+      Registration is not just a form — it’s a passage into the <span class="glitch" data-text="Upside Down">Upside Down</span>.
+    </p>
+
+    <form>
+     Name: <input type="text" placeholder="Full Name" required>
+     Email:<input type="email" placeholder="Email Address" required>
+     College Name:<input type="text" placeholder="College Name" required>
+<select required>
+  <option value="" disabled selected>Select Year</option>
+  <option>1st Year</option>
+  <option>2nd Year</option>
+  <option>3rd Year</option>
+  <option>4th Year</option>
+</select>
+<select required>
+  <option value="" disabled selected>Select Department</option>
+  <option>Information Technology</option>
+  <option>Computer Science Engineering</option>
+  <option>Artificial Intelligence & Data Science</option>
+  <option>Electronics and Communication Engineering</option>
+  <option>Electrical and Electronics Engineering</option>
+  <option>Mechanical Engineering</option>
+  <option>Civil Engineering</option>
+  <option>Other</option>
+</select>
+<div class="event-section">
+
+  <h3 class="event-heading">TECHNICAL EVENTS</h3>
+
+  <!-- Individual -->
+  <label class="event-option">
+    <input type="checkbox" name="events">
+    <span>Frontend Flayer </span>
+  </label>
+
+  <!-- Stranger Archives (min 1 max 2) -->
+  <label class="event-option">
+    <input type="checkbox" name="events" data-team="true" data-min="1" data-max="2">
+    <span>Stranger Archives </span>
+  </label>
+  <div class="team-fields" style="display:none;"></div>
+
+  <!-- Project Eleven (min 1 max 3) -->
+  <label class="event-option">
+    <input type="checkbox" name="events" data-team="true" data-min="1" data-max="3">
+    <span>Project Eleven</span>
+  </label>
+  <div class="team-fields" style="display:none;"></div>
+
+  <!-- Hackathon (min 3 max 3) -->
+  <label class="event-option">
+    <input type="checkbox" name="events" data-team="true" data-min="3" data-max="3">
+    <span>Mindflayer Hackathon</span>
+  </label>
+  <div class="team-fields" style="display:none;"></div>
+
+  <!-- Individual -->
+  <label class="event-option">
+    <input type="checkbox" name="events">
+    <span>Error 404 </span>
+  </label>
+
+  <h3 class="event-heading">NON-TECHNICAL EVENTS</h3>
+
+  <!-- Treasure Hunt (min 3 max 4) -->
+  <label class="event-option">
+    <input type="checkbox" name="events" data-team="true" data-min="3" data-max="4">
+    <span>Hunt for 011 </span>
+  </label>
+  <div class="team-fields" style="display:none;"></div>
+
+  <!-- Gaming (min 1 max 2) -->
+  <label class="event-option">
+    <input type="checkbox" name="events" data-team="true" data-min="1" data-max="2">
+    <span>Play with Vecna </span>
+  </label>
+  <div class="team-fields" style="display:none;"></div>
+
+  <!-- Connections (min 2 max 4) -->
+  <label class="event-option">
+    <input type="checkbox" name="events" data-team="true" data-min="2" data-max="4">
+    <span>True Sight </span>
+  </label>
+  <div class="team-fields" style="display:none;"></div>
+
+  <!-- Adzap (min 4 max 6) -->
+  <label class="event-option">
+    <input type="checkbox" name="events" data-team="true" data-min="4" data-max="6">
+    <span>The AD Dimension </span>
+  </label>
+  <div class="team-fields" style="display:none;"></div>
+
+  <!-- Short Film (min 1 max 3) -->
+  <label class="event-option">
+    <input type="checkbox" name="events" data-team="true" data-min="1" data-max="3">
+    <span>Vision of Will Byers </span>
+  </label>
+  <div class="team-fields" style="display:none;"></div>
+
+</div>
+
+<p class="hint">Selected <span id="eventCount">0</span> / 3 events</p>
+<!-- SURPRISE EVENT SECTION -->
+<h3 class="event-heading">SURPRISE EVENT</h3>
+
+<p class="event-note">
+  🎁 Surprise Event is optional.  
+  <br>
+  Pay <strong>₹150</strong> for 3 Technical / Non-Technical events.  
+  <br>
+  Select Surprise Event to pay an <strong>extra ₹50</strong> (Total <strong>₹200</strong>).
+</p>
+
+<label class="event-option surprise-option">
+  <input type="checkbox" id="surpriseEvent">
+  <span>Surprise Event (+ ₹50)</span>
+</label>
+<!-- PAYMENT SECTION -->
+<h3 class="event-heading">PAYMENT DETAILS</h3>
+
+<div class="payment-box">
+
+  <p class="payment-amount">
+    Total Payable Amount:
+    <span id="payAmount">₹150</span>
+  </p>
+
+  <!-- QR CODE -->
+  <div class="qr-box">
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi://pay?pa=jmanovadaniel.11@oksbi&pn=VEC%20Symposium&tn=Symposium%20Registration&cu=INR"
+          alt="UPI QR Code">
+      </div>
+
+  <p class="payment-note">
+    Scan the QR code and complete the payment.
+    <br>
+    Upload the <strong>payment screenshot</strong> below.
+  </p>
+
+  <!-- SCREENSHOT UPLOAD -->
+  <input type="file"
+         id="paymentProof"
+         accept="image/*"
+         required>
+
+  <!-- DISCLAIMER -->
+  <p class="disclaimer">
+    ⚠️ Please bring the <strong>payment screenshot</strong> when you come for the symposium.
+  </p>
+
+</div>
+
+
+<div id="teamSection" style="display:none;">
+
+  <h3 class="event-heading">TEAM DETAILS</h3>
+
+  <input type="text" id="teamName" placeholder="Team Name">
+
+  <select id="teamSize">
+    <option value="" disabled selected>Select Team Size</option>
+  </select>
+
+  <div id="teamMembers"></div>
+
+</div>
+
+<div id="teamSection" style="display:none;">
+
+  <h3 class="event-heading">TEAM DETAILS</h3>
+
+  <input type="text" id="teamName" placeholder="Team Name">
+
+  <select id="teamSize">
+    <option value="" disabled selected>Select Team Size</option>
+  </select>
+
+  <div id="teamMembers"></div>
+
+</div>
+
+         
+
+
+      <button type="submit" class="register-btn">
+        ENTER THE UPSIDE DOWN
+      </button>
+    </form>
+  </div>
+</section>
+
+
+<div id="thunder"></div>
+<script defer src="assets/main.js"></script>
+</body>
+</html>

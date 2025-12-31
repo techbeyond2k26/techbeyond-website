@@ -1,0 +1,1259 @@
+:root {
+  --bg: #050505;
+  --red: #e50914;
+  --glow: #ff3b3b;
+  --blue: #00e5ff;
+  --amber: #ffb703;
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body{
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+body {
+  background: #000;
+  color: white;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ================= BACKGROUND VIDEO ================= */
+.video-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  overflow: hidden;
+}
+
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /*background: rgba(0,0,0,0.65);*/
+}
+
+/* ================= VHS OVERLAY ================= */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  /*background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );*/
+  z-index: 999;
+}
+
+/* ================= GLOBAL ================= */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* ================= NAV ================= */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+nav a {
+  margin-left: 20px;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: var(--red);
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ================= HERO ================= */
+.hero {
+  height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+.hero-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  z-index: 3;
+  background: none;
+}
+.hero-content,
+.hero-header {
+  background: transparent !important;
+}
+
+/* ================= HERO HEADER ================= */
+
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  z-index: 5;
+}
+
+/* College name row */
+.college-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  color: #f5e6c8;
+
+  text-shadow:
+    0 0 10px rgba(255, 200, 120, 0.35),
+    0 0 25px rgba(255, 150, 60, 0.2);
+
+  opacity: 0;
+}
+.college-logo {
+  width: 90px;
+  margin-bottom: 14px;
+
+  opacity: 0;
+  transform: scale(0.85);
+
+  filter:
+    drop-shadow(0 0 12px rgba(255, 200, 120, 0.6))
+    drop-shadow(0 0 30px rgba(255, 120, 0, 0.35));
+
+  z-index: 8;
+}
+/* Logo reveal */
+.reveal-logo.visible {
+  animation: logoReveal 1.2s ease forwards;
+}
+@keyframes logoReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Affiliation */
+.affiliation {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: #e0d4c0;
+  opacity: 0.85;
+}
+
+
+/* Department */
+.department {
+  font-size: 0.95rem;
+  letter-spacing: 2.5px;
+  color:#ffd38a; 
+
+  text-shadow:
+    0 0 10px rgba(255, 210, 140, 0.35),
+    0 0 20px rgba(255, 170, 80, 0.25);
+}
+
+
+/* Proudly presents */
+.presents {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #ddd;
+}
+.hero,
+.hero-content,
+.hero * {
+  position: relative;
+  z-index: 3;
+}
+
+body::after {
+  z-index: 3; /* VHS overlay below content */
+}
+
+
+
+/* Main Event Title */
+.event-title {
+  font-family: 'ITC Benguiat', serif;
+  font-size: 3.5rem;
+  color: #ff2a2a;
+  letter-spacing: 4px;
+  margin-top: 6px;
+
+  text-shadow:
+    0 0 12px #ff2a2a,
+    0 0 30px #b30000,
+    0 0 60px rgba(139,0,0,0.7);
+}
+/* ================= EVENT TITLE IMAGE ================= */
+
+.event-title-img {
+  width: 420px;          /* desktop size */
+  max-width: 90%;
+  margin: 10px 0 14px;
+  opacity: 1;
+  transform: none;
+
+  filter:
+    drop-shadow(0 0 10px rgba(255, 40, 40, 0.8))
+    drop-shadow(0 0 30px rgba(180, 0, 0, 0.6));
+
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+/* Soft glowing pulse*/ 
+@keyframes titleGlow {
+  0% {
+    filter:
+      drop-shadow(0 0 8px rgba(255, 40, 40, 0.6))
+      drop-shadow(0 0 20px rgba(180, 0, 0, 0.4));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 14px rgba(255, 40, 40, 1))
+      drop-shadow(0 0 40px rgba(180, 0, 0, 0.8));
+  }
+  100% {
+    filter:
+      drop-shadow(0 0 8px rgba(255, 40, 40, 0.6))
+      drop-shadow(0 0 20px rgba(180, 0, 0, 0.4));
+  }
+}
+@media (max-width: 768px) {
+  .event-title-img {
+    width: 300px;
+  }
+}
+
+
+
+/* subtle cinematic fade */
+@keyframes logoFade {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .college-logo {
+    width: 90px;
+  }
+}
+
+
+.hero p {
+  margin-top: 15px;
+  color: #ccc;
+  letter-spacing: 2px;
+}
+/* Button */
+.register-btn {
+  margin-top: 18px;
+  width: 340px;
+  max-width: 90%;
+  height: 48px;
+
+  background: linear-gradient(90deg, #ff1e1e, #b30000);
+  border: none;
+  border-radius: 6px;
+
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+
+  box-shadow: 0 0 25px rgba(229,9,20,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(229,9,20,0.9);
+}
+/* Glow pulse */
+.register-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.register-btn:hover::before {
+  opacity: 1;
+}
+
+.reveal-logo,
+.reveal-title,
+.reveal-tagline,
+.reveal-countdown {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.reveal-logo.visible {
+  animation: logoReveal 1.2s ease forwards;
+}
+
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.reveal-title.visible {
+  animation: titleReveal 1.3s ease forwards;
+}
+
+@keyframes titleReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+    text-shadow: none;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow:
+      0 0 10px #ff2a2a,
+      0 0 25px #ff0000,
+      0 0 50px #8b0000;
+  }
+}
+.reveal-tagline.visible {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.1s;
+}
+.reveal-countdown.visible {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .reveal-logo,
+  .reveal-title {
+    animation-duration: 0.9s !important;
+  }
+}
+/* nav logo */
+.nav-logo img {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(229, 9, 20, 0.6));
+}
+
+
+/*count down style */
+.countdown {
+  position: relative;
+  z-index: 6;               /* bring above overlays */
+  margin: 18px auto 22px;
+   margin-top: 12px;
+  padding: 10px 18px;
+  min-width: 260px;
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,42,42,0.5);
+  border-radius: 6px;
+
+  box-shadow: 0 0 18px rgba(255,42,42,0.4);
+
+  backdrop-filter: blur(6px);
+}
+.countdown {
+  animation: countdownPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes countdownPulse {
+  0% {
+    box-shadow:
+      0 0 12px rgba(255, 59, 59, 0.35),
+      inset 0 0 8px rgba(255, 59, 59, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 22px rgba(255, 59, 59, 0.7),
+      inset 0 0 12px rgba(255, 59, 59, 0.3);
+  }
+  100% {
+    box-shadow:
+      0 0 12px rgba(255, 59, 59, 0.35),
+      inset 0 0 8px rgba(255, 59, 59, 0.15);
+  }
+}
+.countdown span {
+  margin: 0 6px;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+@media (max-width: 768px) {
+  .countdown {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+    letter-spacing: 1px;
+  }
+}
+
+.event-title span {
+  display: block;
+  font-size: 3.8rem;
+}
+
+
+
+/* ================= SECTIONS ================= */
+section {
+  padding: 70px 0;
+}
+
+h1 {
+  font-family: 'ITC Benguiat', serif;
+  color: var(--red);
+  text-shadow: 0 0 15px var(--glow);
+}
+
+/* ================= NETFLIX-STYLE ROW ================= */
+.st-row {
+  margin: 30px 0;
+}
+
+.st-row-title {
+  text-align: center;
+  margin-left: 60px;
+  margin-bottom: 18px;
+}
+
+/* ================= CACHE PARAGRAPH ================= */
+
+.event-cache {
+  max-width: 900px;
+  margin: 10px auto 25px auto;
+  padding: 0 20px;
+  text-align: justify;
+
+  font-size: 1.05rem;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+
+  color: #ff2a2a;
+
+  /* cinematic Stranger Things feel */
+  text-shadow:
+    0 0 8px rgba(229, 9, 20, 0.25),
+    0 0 18px rgba(229, 9, 20, 0.15);
+
+  opacity: 0.9;
+  transform: translateY(15px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.event-cache.visible {
+  opacity: 0.9;
+  transform: translateY(0);
+}
+
+/* subtle glow on important words (optional span usage) */
+.event-cache span {
+  color: var(--glow);
+  text-shadow:
+    0 0 10px var(--glow),
+    0 0 25px rgba(255, 59, 59, 0.5);
+}
+
+/* responsive tuning */
+@media (max-width: 768px) {
+  .event-cache {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+/* ================= GLITCH FLICKER KEYWORD ================= */
+
+.glitch {
+  position: relative;
+  display: inline-block;
+  color: var(--glow);
+  text-shadow:
+    0 0 8px var(--glow),
+    0 0 18px rgba(255, 59, 59, 0.6);
+  animation: glitch-flicker 2.5s infinite;
+}
+
+/* Red & blue ghost layers */
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.8;
+}
+
+.glitch::before {
+  color: #ff1e1e;
+  transform: translate(-1px, 0);
+  animation: glitch-red 2.5s infinite;
+}
+
+.glitch::after {
+  color: #00e5ff;
+  transform: translate(1px, 0);
+  animation: glitch-blue 2.5s infinite;
+}
+
+/* Main flicker */
+@keyframes glitch-flicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.85; }
+  50% { opacity: 0.6; }
+  55% { opacity: 0.9; }
+}
+
+/* Red channel glitch */
+@keyframes glitch-red {
+  0%, 100% { clip-path: inset(0 0 0 0); }
+  50% { clip-path: inset(40% 0 20% 0); }
+}
+
+/* Blue channel glitch */
+@keyframes glitch-blue {
+  0%, 100% { clip-path: inset(0 0 0 0); }
+  52% { clip-path: inset(10% 0 60% 0); }
+}
+
+
+/* Scroll container */
+.st-row-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 60px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+}
+
+/* Hide scrollbar */
+.st-row-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.st-row-wrapper {
+  scrollbar-width: none;
+}
+
+/* Track — THIS ENABLES SCROLL */
+.st-row-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;   /* 🔑 REQUIRED */
+}
+
+/* Prevent scrollbars and allow smooth movement */
+.st-row-wrapper {
+  overflow: hidden;          /* 🔑 hide scrollbar */
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Track moves, not wrapper */
+.st-row-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+}
+
+@media (hover: hover) {
+  .st-card:hover {
+    transform: scale(1.15);
+    box-shadow:
+      0 0 20px #e50914,
+      0 0 55px rgba(229, 9, 20, 0.6);
+  }
+}
+
+
+/* ================= EVENT CARD (BIGGER & FIXED SIZE) ================= */
+
+.st-card {
+  position: relative;
+  width: 320px;        /* 🔼 INCREASED SIZE */
+  height: 180px;       /* 🔼 INCREASED SIZE */
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: box-shadow 0.3s ease; /* ❌ no scale jump */
+}
+
+/* Image */
+.st-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+}
+
+/* Stranger Things hover glow ONLY */
+.st-card:hover {
+  box-shadow:
+    0 0 20px var(--red),
+    0 0 60px rgba(229, 9, 20, 0.6);
+}
+
+/* Smooth scrolling animation */
+.st-row-wrapper {
+  scroll-behavior: smooth;
+}
+
+
+.st-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+/* ================= CAPTION ================= */
+.st-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.9),
+    rgba(0,0,0,0.4),
+    transparent
+  );
+  opacity: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: opacity 0.3s ease;
+}
+
+.st-card:hover .st-overlay {
+  opacity: 1;
+}
+
+.st-overlay h3 {
+  font-size: 0.85rem;
+  color: var(--glow);
+}
+
+.st-overlay p {
+  font-size: 0.7rem;
+  color: #ddd;
+}
+
+/* ================= EFFECTS ================= */
+.spore, .lightning {
+  position: fixed;
+  pointer-events: none;
+}
+
+/* Spores */
+.spore {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.9;
+  z-index: 1000;
+  animation: spore-float linear infinite;
+}
+
+@keyframes spore-float {
+  from { transform: translateY(110vh); }
+  to { transform: translateY(-20vh); }
+}
+
+/* Lightning */
+.lightning {
+  top: 0;
+  width: 4px;
+  height: 100vh;
+  opacity: 0;
+  z-index: 999;
+}
+
+.lightning.red {
+  background: linear-gradient(to bottom, transparent, red, transparent);
+  box-shadow: 0 0 40px red;
+}
+
+.lightning.blue {
+  background: linear-gradient(to bottom, transparent, #00e5ff, transparent);
+  box-shadow: 0 0 40px #00e5ff;
+}
+
+.glitch {
+  cursor: default;
+}
+
+/* ================= REGISTER PAGE ================= */
+
+/* ================= REGISTER PAGE BACKGROUND ================= */
+
+.register-bg {
+  min-height: 100vh;
+  background:url(registration-backgrd.jpeg) center center / cover no-repeat fixed;
+  position: relative;
+}
+
+
+
+register-bg {
+  animation: bgZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes bgZoom {
+  from { background-size: 100%; }
+  to { background-size: 105%; }
+}
+
+
+.register-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 60px;
+}
+
+.register-box {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(0,0,0,0.75);
+  border: 1px solid rgba(229, 9, 20, 0.4);
+  padding: 40px 30px;
+  box-shadow:
+    0 0 25px rgba(229, 9, 20, 0.4),
+    inset 0 0 20px rgba(0,0,0,0.8);
+  position: relative;
+  backdrop-filter: blur(6px);
+}
+
+/* subtle red scan glow */
+.register-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 59, 59, 0.6);
+  box-shadow: 0 0 25px rgba(255, 59, 59, 0.5);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.register-title {
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  color: var(--red);
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px var(--glow);
+}
+
+.register-sub {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+/* ================= FORM FIELDS ================= */
+
+.register-box input,
+.register-box select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  background: #0b0b0b;
+  border: 1px solid #222;
+  color: #eee;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-box input::placeholder {
+  color: #777;
+}
+
+.register-box input:focus,
+.register-box select:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 12px rgba(229, 9, 20, 0.6);
+}
+
+/* ================= EVENT CHECKBOXES ================= */
+/* EVENT SECTION CONTAINER */
+.event-section {
+  max-width: 520px;
+  margin: 30px auto;
+  font-family: "Courier New", monospace;
+}
+
+/* HEADINGS */
+.event-heading {
+  margin: 22px 0 12px;
+  color: #ff1b1b;
+  font-size: 17px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* EVENT BOX */
+.event-option {
+  display: flex;
+  align-items: flex-start;   /* 🔑 NOT center */
+  gap: 10px;
+
+  padding: 14px 16px;
+  margin-bottom: 14px;
+
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 27, 27, 0.35);
+
+  cursor: pointer;
+}
+
+
+
+/* HOVER EFFECT */
+.event-option:hover {
+  border-color: #ff1b1b;
+  cursor: pointer;
+}
+
+/* CHECKBOX */
+.event-option input {
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;           /* 🔑 aligns with text */
+  accent-color: #ff1b1b;
+  flex-shrink: 0;
+}
+
+
+/* EVENT NAME TEXT */
+.event-option span {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+
+  line-height: 1.2;          /* 🔑 prevents dropping */
+  white-space: nowrap;
+}
+
+
+/* CHECKED STATE */
+.event-option input:checked + span {
+  color: #ff1b1b;
+}
+.team-fields {
+  margin: 12px 0 20px 32px;
+  padding: 14px 16px;
+
+  background: rgba(0, 0, 0, 0.55);
+  border-left: 3px solid #ff1b1b;
+  border-radius: 4px;
+}
+
+.team-fields > input[type="text"],
+.team-fields > select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 27, 27, 0.4);
+  border-radius: 4px;
+
+  font-weight: 600; /* 🔑 slightly bolder */
+}
+
+
+.team-fields input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.team-members {
+  margin-top: 8px;
+}
+.team-member-box {
+  margin-top: 10px;
+  padding: 10px 12px;
+
+  background: rgba(20, 20, 20, 0.7);
+  border: 1px dashed rgba(255, 27, 27, 0.4);
+  border-radius: 4px;
+}
+.team-member-box input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+
+  border: 1px solid rgba(255, 27, 27, 0.25);
+  border-radius: 4px;
+
+  font-size: 12.5px;
+  font-family: "Courier New", monospace;
+}
+.team-fields input:focus,
+.team-fields select:focus {
+  outline: none;
+  border-color: #ff1b1b;
+  box-shadow: 0 0 6px rgba(255, 27, 27, 0.4);
+}
+.team-fields,
+.team-fields input,
+.team-fields select {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+}
+.team-fields h4 {
+  margin: 10px 0 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #ff1b1b;
+  text-transform: uppercase;
+}
+.team-fields h4 + input,
+.team-fields h4 + input + input,
+.team-fields h4 + input + input + input {
+  width: 100%;
+  padding: 9px 11px;
+  margin-bottom: 8px;
+
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 27, 27, 0.35);
+  border-radius: 4px;
+
+  font-weight: 500;
+}
+.team-members {
+  margin-top: 12px;
+}
+.team-member-box {
+  margin-top: 10px;
+  padding: 10px 12px;
+
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px dashed rgba(255, 27, 27, 0.35);
+  border-radius: 4px;
+}
+.team-member-box input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 27, 27, 0.25);
+  border-radius: 4px;
+
+  font-size: 12.5px;   /* 🔑 slightly smaller */
+  font-weight: 500;
+}
+.team-fields input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+.team-fields input:focus,
+.team-fields select:focus {
+  outline: none;
+  border-color: #ff1b1b;
+  box-shadow: 0 0 6px rgba(255, 27, 27, 0.4);
+}
+/* Surprise event description */
+.event-note {
+  max-width: 520px;
+  margin: 10px auto 14px;
+  padding: 10px 14px;
+
+  background: rgba(255, 27, 27, 0.08);
+  border-left: 3px solid #ff1b1b;
+  border-radius: 4px;
+
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 1.5;
+  font-family: "Courier New", monospace;
+}
+
+/* Highlight strong text */
+.event-note strong {
+  color: #ff1b1b;
+  font-weight: 700;
+}
+
+/* Surprise event box slight variation */
+.surprise-option {
+  border-color: rgba(255, 27, 27, 0.6);
+  background: rgba(0, 0, 0, 0.8);
+}
+.payment-box {
+  margin: 20px 0;
+  padding: 16px;
+
+  background: rgba(0, 0, 0, 0.65);
+  border: 2px solid rgba(255, 27, 27, 0.6);
+  border-radius: 6px;
+
+  text-align: center;
+  font-family: "Courier New", monospace;
+}
+
+.payment-amount {
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.payment-amount span {
+  color: #ff1b1b;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.qr-box img {
+  width: 180px;
+  margin: 12px auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.payment-note {
+  font-size: 13px;
+  margin: 10px 0;
+  color: #ffffff;
+}
+
+.payment-box input[type="file"] {
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.disclaimer {
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: #ffb3b3;
+}
+/* ================= FORCE QR VISIBILITY ================= */
+
+.qr-box {
+  position: relative;
+  z-index: 9999;
+  background: #ffffff;
+  padding: 10px;
+  width: fit-content;
+  margin: 14px auto;
+  border-radius: 6px;
+}
+
+.qr-box img {
+  display: block !important;
+  width: 220px !important;
+  height: auto !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  filter: none !important;
+  mix-blend-mode: normal !important;
+
+  background: #ffffff !important;
+}
+
+
+/* ================= BUTTON ================= */
+
+.register-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #ff2a2a, #8b0000);
+  color: #fff;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 0 25px rgba(229, 9, 20, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-btn:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 35px rgba(229, 9, 20, 0.9),
+    0 0 60px rgba(229, 9, 20, 0.6);
+}
+
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 30px;
+  opacity: 0.6;
+}
+
+/* ================= RESPONSIVE LAYOUT ================= */
+
+@media screen and (max-width: 1200px) {
+  body div {
+    flex-basis: 100%;
+  }
+  .partision {
+    flex-basis: 40%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .partision {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* UPSIDE DOWN TRANSITION */
+.upside-down {
+    animation: flipWorld 1.8s ease-in-out forwards;
+}
+
+@keyframes flipWorld {
+    0% {
+        transform: rotate(0deg);
+        filter: invert(0);
+    }
+    100% {
+        transform: rotate(180deg);
+        filter: invert(1) hue-rotate(180deg);
+    }
+}
+
+/* ================= MOBILE RESPONSIVENESS ================= */
+@media (max-width: 768px) {
+
+  nav {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+
+  nav div a {
+    margin-left: 12px;
+  }
+
+  section {
+    padding: 80px 20px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  p, li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  button {
+    width: 100%;
+    max-width: 280px;
+    margin: 20px auto;
+    display: block;
+  }
+
+}

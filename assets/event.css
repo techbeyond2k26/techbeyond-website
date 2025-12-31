@@ -1,0 +1,984 @@
+:root {
+  --bg: #050505;
+  --red: #e50914;
+  --glow: #ff3b3b;
+  --blue: #00e5ff;
+  --amber: #ffb703;
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: #000;
+  color: white;
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* ================= GLOBAL ================= */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* ================= NAV ================= */
+.nav-logo img {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(229, 9, 20, 0.6));
+}
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+nav a {
+  margin-left: 20px;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: var(--red);
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/*====== AD Dimension ======*/
+.AD-bg {
+  min-height: 100vh;
+  position: relative;
+
+  /* Background image */
+  background: url("AD DIMENSIONS.jpg") center center / cover no-repeat;
+  overflow: hidden;
+}
+
+.AD-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.AD-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+}
+
+.AD-bg {
+  box-shadow: inset 0 0 120px rgba(229, 9, 20, 0.25);
+}
+
+.AD-bg > * {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .AD-bg {
+    background-attachment: scroll;
+  }
+}
+
+/*====== Archives-bg ======*/
+.archive-bg {
+  min-height: 100vh;
+  position: relative;
+
+  /* Background image */
+  background: url(Stranger\ archive.jpeg) center center / cover no-repeat;
+  overflow: hidden;
+}
+
+.archive-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.archive-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+}
+
+.archive-bg {
+  box-shadow: inset 0 0 120px rgba(229, 9, 20, 0.25);
+}
+
+.archive-bg > * {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .archive-bg {
+    background-attachment: scroll;
+  }
+}
+
+/*====== eleven-bg ======*/
+.eleven-bg {
+  min-height: 100vh;
+  position: relative;
+
+  /* Background image */
+  background: url(PROJECT\ EXPO.jpg) center center / cover no-repeat;
+  overflow: hidden;
+}
+
+.eleven-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.eleven-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+}
+
+.eleven-bg {
+  box-shadow: inset 0 0 120px rgba(229, 9, 20, 0.25);
+}
+
+.eleven-bg > * {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .eleven-bg {
+    background-attachment: scroll;
+  }
+}
+
+/*====== frontend-bg ======*/
+.frontend-bg {
+  min-height: 100vh;
+  position: relative;
+
+  /* Background image */
+  background: url(frontend.jpeg) center center / cover no-repeat;
+  overflow: hidden;
+}
+
+.frontend-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.frontend-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+}
+
+.frontend-bg {
+  box-shadow: inset 0 0 120px rgba(229, 9, 20, 0.25);
+}
+
+.frontend-bg > * {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .frontend-bg {
+    background-attachment: scroll;
+  }
+}
+
+/*====== hackathon-bg ======*/
+.hackathon-bg {
+  min-height: 100vh;
+  position: relative;
+
+  /* Background image */
+  background: url(HACKATHON.jpg) center center / cover no-repeat;
+  overflow: hidden;
+}
+
+.hackathon-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.hackathon-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+}
+
+.hackathon-bg {
+  box-shadow: inset 0 0 120px rgba(229, 9, 20, 0.25);
+}
+
+.hackathon-bg > * {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .hackathon-bg {
+    background-attachment: scroll;
+  }
+}
+
+/*====== hunt-bg ======*/
+.hunt-bg {
+  min-height: 100vh;
+  position: relative;
+
+  /* Background image */
+  background: url(TREASURE\ HUNT.jpg) center center / cover no-repeat;
+  overflow: hidden;
+}
+
+.hunt-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.hunt-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+}
+
+.hunt-bg {
+  box-shadow: inset 0 0 120px rgba(229, 9, 20, 0.25);
+}
+
+.hunt-bg > * {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .hunt-bg {
+    background-attachment: scroll;
+  }
+}
+
+/*====== sight-bg ======*/
+.sight-bg {
+  min-height: 100vh;
+  position: relative;
+
+  /* Background image */
+  background: url(TRUE\ SIGHT.jpg) center center / cover no-repeat;
+  overflow: hidden;
+}
+
+.sight-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.sight-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+}
+
+.sight-bg {
+  box-shadow: inset 0 0 120px rgba(229, 9, 20, 0.25);
+}
+
+.sight-bg > * {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .sight-bg {
+    background-attachment: scroll;
+  }
+}
+/*====== debug-bg ======*/
+.debug-bg {
+  min-height: 100vh;
+  position: relative;
+
+  /* Background image */
+  background: url(debugging.jpeg) center center / cover no-repeat;
+  overflow: hidden;
+}
+
+.debug-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.debug-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+}
+
+.debug-bg {
+  box-shadow: inset 0 0 120px rgba(229, 9, 20, 0.25);
+}
+
+.debug-bg > * {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .debug-bg {
+    background-attachment: scroll;
+  }
+}
+/*====== vecna-bg ======*/
+.vecna-bg {
+  min-height: 100vh;
+  position: relative;
+
+  /* Background image */
+  background: url(PLAY\ WITH\ VECNA.jpg) center center / cover no-repeat;
+  overflow: hidden;
+}
+
+.vecna-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.vecna-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+}
+
+.vecna-bg {
+  box-shadow: inset 0 0 120px rgba(229, 9, 20, 0.25);
+}
+
+.vecna-bg > * {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .vecna-bg {
+    background-attachment: scroll;
+  }
+}
+/*====== vision-bg ======*/
+.vision-bg {
+  min-height: 100vh;
+  position: relative;
+
+  /* Background image */
+  background: url(VISION\ OF\ WILL\ BYERS.jpg) center center / cover no-repeat;
+  overflow: hidden;
+}
+
+.vision-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.vision-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+}
+
+.vision-bg {
+  box-shadow: inset 0 0 120px rgba(229, 9, 20, 0.25);
+}
+
+.vision-bg > * {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .vision-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* ================= EVENT CONTENT ================= */
+
+.event-container {
+  max-width: 900px;
+  margin: 120px auto;
+  padding: 50px 40px;
+
+  /* REMOVE solid black */
+  background: transparent;
+
+  /* Cinematic readable overlay instead */
+  backdrop-filter: blur(3px);
+  border-radius: 12px;
+
+  color: #eee;
+  line-height: 1.8;
+  position: relative;
+}
+.event-container::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.2) 40%,
+    transparent 70%
+  );
+  z-index: -1;
+}
+.event-section h3,
+h3, h4 {
+  color: #ff2a2a;
+  text-shadow:
+    0 0 10px rgba(255,42,42,0.6),
+    0 0 25px rgba(180,0,0,0.4);
+}
+
+
+.event-meta {
+  margin: 15px 0 30px;
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.event-section {
+  margin: 35px 0;
+}
+
+.event-section h3 {
+  margin-bottom: 12px;
+  color: var(--blue);
+}
+
+.round {
+  margin: 22px 0;
+}
+
+.round h4 {
+  margin-bottom: 6px;
+  color: var(--amber);
+}
+
+.rules-list {
+  list-style: none;
+  padding: 0;
+}
+
+.rules-list li {
+  margin: 6px 0;
+}
+
+.register-btn {
+  margin-top: 30px;
+  padding: 12px 26px;
+  background: transparent;
+  border: 1px solid var(--red);
+  color: white;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background: var(--red);
+  box-shadow: 0 0 12px var(--glow);
+}
+/* ================= EVENT GLASS CARD (FIX) ================= */
+
+.event-container {
+  text-align: justify;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 50px 35px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+}
+.event-container a {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+
+.event-container button{
+  align-items: center;
+}
+/* ================= CLEAN EVENT LIST FIX ================= */
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 30px;
+  text-align: center;
+}
+
+.event-list li {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+/* ================= FRONTEND FLAYER FIX ================= */
+
+/* Make section titles clearly separated */
+.event-container h3 {
+  margin-top: 45px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+/* Make Task / Rules / Evaluation stand out */
+.event-container h4 {
+  margin-top: 25px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: var(--amber);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Fix list appearance (THIS IS THE KEY) */
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px auto 30px;
+  max-width: 520px;
+}
+
+/* Force each list item as a clear block */
+.event-list li {
+  display: block;
+  margin: 8px 0;
+  padding-left: 0;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Space after shortlisting line */
+.event-container p strong {
+  display: inline-block;
+  margin-top: 12px;
+}
+/* ================= LIST ALIGNMENT FIX ================= */
+
+/* Center the list block, but align text inside */
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 15px auto 30px;
+  max-width: 520px;      /* controls neat width */
+  text-align: left;     /* 🔑 THIS fixes uneven starts */
+}
+
+/* Each line starts from same position */
+.event-list li {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+/* ================= RULES TEXT ALIGN FIX ================= */
+
+/* Wrap rules text into a clean block */
+.event-container p + p,
+.event-container .rules-text {
+  max-width: 520px;
+  margin: 8px auto;
+  text-align: left;   /* 🔑 forces same start point */
+  line-height: 1.6;
+}
+/* ================= GLOBAL CONTENT ALIGN FIX ================= */
+
+/* Keep headings centered */
+.event-container h2,
+.event-container h3 {
+  text-align: center;
+}
+
+/* Make ALL content text align from same left edge */
+.event-container p,
+.event-container ul,
+.event-container li {
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;     /* 🔑 THE KEY FIX */
+  line-height: 1.6;
+}
+
+/* Clean list spacing */
+.event-container ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+/* ================= RED BULLET LIST STYLE ================= */
+
+/* List container */
+.event-list {
+  max-width: 560px;
+  margin: 12px auto 30px;
+  padding-left: 20px;     /* space for bullet */
+  text-align: left;
+}
+
+/* Each list item */
+.event-list li {
+  position: relative;
+  margin: 8px 0;
+  line-height: 1.6;
+  padding-left: 14px;     /* aligns text after bullet */
+}
+
+/* Red bullet */
+.event-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--red);      /* 🔴 theme red */
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+/* =========================================================
+   GLOBAL EVENT TEXT ALIGNMENT + RED BULLETS (FINAL)
+   Applies to ALL completed & future event files
+   ========================================================= */
+
+/* Keep headings centered */
+.event-container h2,
+.event-container h3,
+.event-container h4 {
+  text-align: center;
+}
+
+/* Force ALL readable content to start at same point */
+.event-container p,
+.event-container ul,
+.event-container li {
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;        /* 🔑 SAME STARTING POINT */
+  line-height: 1.6;
+}
+
+/* Remove default bullets */
+.event-container ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+/* Red bullet styling */
+.event-list li {
+  position: relative;
+  padding-left: 18px;      /* space after bullet */
+  margin: 8px 0;
+}
+
+/* Red bullet dot */
+.event-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--red);       /* 🔴 theme red */
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+/* ================= EFFECTS ================= */
+.spore, .lightning {
+  position: fixed;
+  pointer-events: none;
+}
+
+/* Spores */
+.spore {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.9;
+  z-index: 1000;
+  animation: spore-float linear infinite;
+}
+
+@keyframes spore-float {
+  from { transform: translateY(110vh); }
+  to { transform: translateY(-20vh); }
+}
+
+/* Lightning */
+.lightning {
+  top: 0;
+  width: 4px;
+  height: 100vh;
+  opacity: 0;
+  z-index: 999;
+}
+
+.lightning.red {
+  background: linear-gradient(to bottom, transparent, red, transparent);
+  box-shadow: 0 0 40px red;
+}
+
+.lightning.blue {
+  background: linear-gradient(to bottom, transparent, #00e5ff, transparent);
+  box-shadow: 0 0 40px #00e5ff;
+}
